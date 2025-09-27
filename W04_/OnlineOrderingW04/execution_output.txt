@@ -1,0 +1,31 @@
+===== ORDER 1 =====
+PACKING LABEL
+------------------------------
+USB-C Cable — ID: A1001
+Wireless Mouse — ID: B2044
+
+SHIPPING LABEL
+------------------------------
+Allison Rose
+123 Maple Street
+Provo, UT
+USA
+
+Total Price: $54.92
+
+===== ORDER 2 =====
+PACKING LABEL
+------------------------------
+Mechanical Keyboard — ID: K3090
+HDMI Cable 2m — ID: H1800
+Webcam 1080p — ID: W5520
+
+SHIPPING LABEL
+------------------------------
+Olakunle Obademi
+45 Kingsway
+London, Greater London
+United Kingdom
+
+Total Price: $137.00
+
