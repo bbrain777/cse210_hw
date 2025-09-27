@@ -1,0 +1,24 @@
+Title: Intro to OOP
+Author: CS101
+Length: 420 seconds
+Comments: 3
+ - Allison: Very clear explanation!
+ - Ben: Helped me a lot.
+ - Chika: Please do inheritance next.
+
+Title: Abstraction vs Encapsulation
+Author: DevTalks
+Length: 605 seconds
+Comments: 3
+ - Dara: Great real-world examples.
+ - Ethan: Short and sweet.
+ - Fiona: Now I finally get it!
+
+Title: C# Classes & Objects
+Author: CodeLab
+Length: 515 seconds
+Comments: 3
+ - Grace: Code samples were perfect.
+ - Hassan: Please share the repo link.
+ - Ivy: Clear naming conventions.
+
