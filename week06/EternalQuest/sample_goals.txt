@@ -1,0 +1,4 @@
+125
+SimpleGoal|Read Scriptures|Read a chapter|50|true
+EternalGoal|Daily Prayer|Offer sincere prayer|10
+ChecklistGoal|Temple Attendance|Attend sessions|25|2|5|100
