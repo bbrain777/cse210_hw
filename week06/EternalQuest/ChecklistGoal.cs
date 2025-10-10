@@ -15,14 +15,13 @@ public class ChecklistGoal : Goal
         _bonusAwarded = false;
     }
 
-    // Overloaded for loading
     public ChecklistGoal(string name, string description, int points, int target, int bonus, int amountCompleted)
         : base(name, description, points)
     {
         _amountCompleted = amountCompleted;
         _target = target;
         _bonus = bonus;
-        _bonusAwarded = amountCompleted >= target; // if already finished in saved data, bonus considered awarded
+        _bonusAwarded = amountCompleted >= target;
     }
 
     public int AmountCompleted => _amountCompleted;
@@ -30,8 +29,7 @@ public class ChecklistGoal : Goal
 
     public override string GetDetailsString()
     {
-        return $"{base.GetDetailsString()} -- Currently completed: {_amountCompleted}/{_target}" +
-               (IsComplete() ? " [COMPLETED]" : "");
+        return $"{base.GetDetailsString()} -- Currently completed: {_amountCompleted}/{_target}" + (IsComplete() ? " [COMPLETED]" : "");
     }
 
     public override int RecordEvent()
@@ -50,7 +48,6 @@ public class ChecklistGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        // Type|name|desc|points|amountCompleted|target|bonus
         return $"ChecklistGoal|{_shortName}|{_description}|{_points}|{_amountCompleted}|{_target}|{_bonus}";
     }
 }

@@ -20,31 +20,19 @@ public abstract class Goal
 
     public virtual string GetDetailsString()
     {
-        // Default details for Simple/Eternal
         return $"{_shortName} ({_description})";
     }
 
     /// <summary>
-    /// Record an event for this goal and mutate any internal state.
-    /// Return value is the number of points awarded for this event.
-    /// Score aggregation is handled by the caller (GoalManager).
+    /// Record an event for this goal. Returns points awarded.
     /// </summary>
     public abstract int RecordEvent();
-
     public abstract bool IsComplete();
 
-    /// <summary>Serialize this goal to a single-line string for saving.</summary>
     public abstract string GetStringRepresentation();
 
-    /// <summary>
-    /// Factory method to rehydrate a Goal from a saved line.
-    /// </summary>
     public static Goal FromString(string line)
     {
-        // Expected formats:
-        // SimpleGoal|name|desc|points|isComplete
-        // EternalGoal|name|desc|points
-        // ChecklistGoal|name|desc|points|amountCompleted|target|bonus
         var parts = line.Split('|');
         if (parts.Length < 4) throw new InvalidOperationException("Corrupt save line: " + line);
 

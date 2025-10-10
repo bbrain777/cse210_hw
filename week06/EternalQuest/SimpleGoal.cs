@@ -9,7 +9,6 @@ public class SimpleGoal : Goal
         _isComplete = false;
     }
 
-    // Overloaded constructor for loading from file
     public SimpleGoal(string name, string description, int points, bool isComplete)
         : base(name, description, points)
     {
@@ -18,7 +17,7 @@ public class SimpleGoal : Goal
 
     public override int RecordEvent()
     {
-        if (_isComplete) return 0; // already completed, no extra points
+        if (_isComplete) return 0;
         _isComplete = true;
         return _points;
     }
@@ -27,7 +26,6 @@ public class SimpleGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        // Type|name|desc|points|isComplete
         return $"SimpleGoal|{_shortName}|{_description}|{_points}|{_isComplete}";
     }
 }

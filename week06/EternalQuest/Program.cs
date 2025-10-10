@@ -1,3 +1,7 @@
+// Exceeds core requirements:
+// - Added a Summary Report (menu option 6) showing completion percentage for completable goals (Simple & Checklist).
+// - Automatic summary display after each recorded event.
+// - Robust save/load with input validation remains present.
 
 using System;
 

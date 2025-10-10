@@ -21,7 +21,8 @@ public class GoalManager
             Console.WriteLine("  3. Save Goals");
             Console.WriteLine("  4. Load Goals");
             Console.WriteLine("  5. Record Event");
-            Console.WriteLine("  6. Quit");
+            Console.WriteLine("  6. Summary Report");
+            Console.WriteLine("  7. Quit");
             Console.Write("Select a choice from the menu: ");
             var choice = Console.ReadLine();
 
@@ -32,7 +33,8 @@ public class GoalManager
                 case "3": SaveGoals(); break;
                 case "4": LoadGoals(); break;
                 case "5": RecordEvent(); break;
-                case "6": running = false; break;
+                case "6": ShowSummaryReport(); break;
+                case "7": running = false; break;
                 default: Console.WriteLine("Invalid choice."); break;
             }
         }
@@ -117,6 +119,7 @@ public class GoalManager
         int awarded = goal.RecordEvent();
         _score += awarded;
         Console.WriteLine($"Event recorded! You earned {awarded} points.");
+        ShowSummaryReport();
     }
 
     public void SaveGoals()
@@ -163,6 +166,50 @@ public class GoalManager
         }
 
         Console.WriteLine($"Loaded {_goals.Count} goals. Current score: {_score}");
+    }
+
+    public void ShowSummaryReport()
+    {
+        int totalCompletable = 0;
+        int completed = 0;
+        int checklistCount = 0;
+        int checklistCompleted = 0;
+
+        foreach (var g in _goals)
+        {
+            if (g is EternalGoal) continue;
+
+            totalCompletable++;
+            if (g.IsComplete()) completed++;
+
+            if (g is ChecklistGoal cl)
+            {
+                checklistCount++;
+                if (cl.IsComplete()) checklistCompleted++;
+            }
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("==== Summary Report ====");
+        Console.WriteLine($"Total goals: {_goals.Count} (Eternal excluded from completion %)");
+        Console.WriteLine($"Completable goals: {totalCompletable}");
+        if (totalCompletable > 0)
+        {
+            double pct = (completed * 100.0) / totalCompletable;
+            Console.WriteLine($"Completed: {completed}/{totalCompletable} ({pct:F1}%)");
+        }
+        else
+        {
+            Console.WriteLine("Completed: 0/0 (0.0%)");
+        }
+
+        if (checklistCount > 0)
+        {
+            double clpct = (checklistCompleted * 100.0) / checklistCount;
+            Console.WriteLine($"Checklist goals completed: {checklistCompleted}/{checklistCount} ({clpct:F1}%)");
+        }
+        Console.WriteLine("========================");
+        Console.WriteLine();
     }
 
     private static int ReadInt()
